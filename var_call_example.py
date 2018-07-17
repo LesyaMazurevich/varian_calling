@@ -78,20 +78,20 @@ def ReferenceCreator(r1, r2, out, ref, IsR1, IsR2):
 
 	if FileFormat_fasta == -1 and FileFormat_fa ==-1:
 		print "Attempting to convert reference to a fasta format\n"
-		FastaExtension = ref.find(".fasta")
+		FastaExtension = ref.find(".fastq")
 		FaExtension = ref.find(".fa")
 		#FE = ref[FileExtension+1:]
 		###print FE
 		if FastaExtension ==-1:
-			with open(ref, "rU") as input_handle, open (out+"/reference.fasta", 'w') as output_handle:
+			with open(ref, "rU") as input_handle, open (out+"/reference.fastq", 'w') as output_handle:
 				sequences = SeqIO.parse(input_handle, "genbank")
 
-				SeqIO.write(sequences, output_handle, "fasta")
+				SeqIO.write(sequences, output_handle, "fastq")
 				output_handle.close()
 
 	if FileFormat_fasta !=-1 or FileFormat_fa !=-1:
 		print "A copy of your file has been brought to your output directory for manipulation\n"
-		copyfile(ref,out+"/reference.fasta")
+		copyfile(ref,out+"/reference.fastq")
 
 	reference = out+"/reference.fasta"
 
