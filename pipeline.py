@@ -162,16 +162,6 @@ def pipeline(args, logger):
         #qualimap_report = qualimap(out_sorted_bam, args.output_folder, args.analysis_name, logger, Config)
         keep_logging('END: Generating Statistics Reports', 'END: Generating Statistics Reports', logger, 'info')
 
-    # ################################################### Stages: Remove Unwanted Intermediate files ######################################
-    # # print "Removing Imtermediate Files...\n%s" % files_to_delete
-    # # for files in files_to_delete:
-    # #     os.remove(files)
-    # # print "Removing Imtermediate Files...\n%s" % files_to_delete
-    # # for files in files_to_delete:
-    # #     os.remove(files)
-    # ############################################################################ End ####################################################
-
-
     if len(steps_list) == 1:
         if steps_list[0] == "coverage_depth_stats":
             clean()
